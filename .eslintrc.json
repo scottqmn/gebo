@@ -16,7 +16,8 @@
     "plugin:jsx-a11y/recommended",
     // "plugin:react-hooks/recommended",
     // always put prettier at last
-    "prettier"
+    "prettier",
+    "prettier/react"
   ],
   "globals": {
     "Atomics": "readonly",
