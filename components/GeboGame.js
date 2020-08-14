@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import styles from '../styles/GeboGame.module.css'
 import { PrismicImage, PrismicAudio } from '../constants/PropTypes'
@@ -6,18 +6,43 @@ import { PrismicImage, PrismicAudio } from '../constants/PropTypes'
 const GeboGame = ({ audio = {}, frame = {}, content = {}, caption }) => {
   const [on, setOn] = useState(false)
   const audioRef = useRef(null)
+  const buttonRef = useRef(null)
+
+  // useEffect(() => {
+  //   if (on) {
+  //     audioRef.current.play()
+  //   } else {
+  //     audioRef.current.pause()
+  //   }
+  // }, [on])
+
+  const buttonClickHandler = useCallback(() => {
+    if (on) {
+      // initially on
+      audioRef.current.pause()
+    } else {
+      // initially off
+      audioRef.current.play()
+    }
+    setOn(!on)
+  }, [on])
 
   useEffect(() => {
-    if (on) {
-      audioRef.current.play()
-    } else {
-      audioRef.current.pause()
+    const bRC = buttonRef.current
+    bRC.addEventListener('click', buttonClickHandler)
+    return () => {
+      bRC.removeEventListener('click', buttonClickHandler)
     }
-  }, [on])
+  }, [buttonClickHandler])
 
   return (
     <div className={styles.geboGame}>
-      <button type='button' className={styles.buttonWrap} onClick={() => setOn(!on)}>
+      <button
+        ref={buttonRef}
+        type='button'
+        className={styles.buttonWrap}
+        // onClick={() => setOn(!on)}
+      >
         <figure className={styles.container}>
           <img className={styles.frame} src={frame.url} alt={frame.alt} />
           <div className={styles.contentWrap}>
