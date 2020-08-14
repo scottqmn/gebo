@@ -12,7 +12,9 @@ a {
   text-decoration: none;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -21,4 +23,8 @@ button {
   border: none;
   background: none;
   padding: 0;
+}
+
+figure {
+  margin: 0;
 }

@@ -1,5 +1,12 @@
 .geboGame {
-  width: 400px;
+  width: 100%;
+  max-width: 420px;
+  margin: 10vmin auto 0;
+}
+
+.buttonWrap {
+  display: block;
+  width: 100%;
 }
 
 .container {
@@ -19,12 +26,12 @@
 
 .contentWrap {
   position: absolute;
-  top: 19%;
+  top: 18%;
   left: 50%;
   transform: translateX(-50%);
   width: 45%;
-  padding-bottom: 30%;
-  background: black;
+  padding-bottom: 31%;
+  background: linear-gradient(140deg, #61635f, #777974);
 }
 
 .content {

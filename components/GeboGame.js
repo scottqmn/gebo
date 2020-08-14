@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
-import t from 'typy'
 import styles from '../styles/GeboGame.module.css'
 import { PrismicImage, PrismicAudio } from '../constants/PropTypes'
 
@@ -18,7 +17,7 @@ const GeboGame = ({ audio = {}, frame = {}, content = {}, caption }) => {
 
   return (
     <div className={styles.geboGame}>
-      <button type='button' onClick={() => setOn(!on)}>
+      <button type='button' className={styles.buttonWrap} onClick={() => setOn(!on)}>
         <figure className={styles.container}>
           <img className={styles.frame} src={frame.url} alt={frame.alt} />
           <div className={styles.contentWrap}>
