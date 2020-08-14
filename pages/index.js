@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+/* eslint-disable react/prop-types */
+import React from 'react'
 import Head from 'next/head'
 import { Client } from '../prismic-configuration'
 import Layout from '../components/Layout'
-import AudioPlayer from '../components/AudioPlayer'
-import ImageDisplay from '../components/ImageDisplay'
+// import AudioPlayer from '../components/AudioPlayer'
+// import ImageDisplay from '../components/ImageDisplay'
+import GeboGame from '../components/GeboGame'
 
-const Homepage = (props) => {
+const Homepage = ({ homepage, geboGame }) => {
+  console.log(homepage, geboGame)
+
+  const { audio, caption, content, frame } = geboGame.data
   return (
     <>
       <Head>
@@ -14,8 +19,9 @@ const Homepage = (props) => {
       </Head>
 
       <Layout>
-        <ImageDisplay image={props.doc.data.main} />
-        <AudioPlayer files={props.doc.data.audio} />
+        {/* <ImageDisplay image={props.doc.data.main} />
+        <AudioPlayer files={props.doc.data.audio} /> */}
+        <GeboGame audio={audio} caption={caption} content={content} frame={frame} />
       </Layout>
     </>
   )
@@ -24,11 +30,13 @@ const Homepage = (props) => {
 export default Homepage
 
 export async function getServerSideProps(context) {
-  const req = context.req
-  const home = await Client(req).getSingle('homepage')
+  const { req } = context
+  const homepage = await Client(req).getSingle('homepage')
+  const geboGame = await Client(req).getSingle('gebo_game')
   return {
     props: {
-      doc: home,
+      homepage,
+      geboGame,
     },
   }
 }
