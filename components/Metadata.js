@@ -2,34 +2,53 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 
-const Metadata = ({ url, pageTitle, description, imgUrl, summary }) => {
+const Metadata = ({
+  title,
+  description,
+  url,
+  imgUrl,
+  ogType = 'website',
+  twitterCard = 'summary',
+}) => {
   return (
     <Head>
       {/* Regular */}
-      <title>{pageTitle}</title>
+      {title && <title>{title}</title>}
       <link rel='icon' href='/favicon.ico' />
       <meta charset='utf-8' />
-      <meta name='description' content={description} />
-      <link rel='canonical' href={url} />
-      {/* Facebook */}
-      <meta property='og:title' content={pageTitle} />
-      <meta property='og:type' content='article' />
-      <meta property='og:image' content={imgUrl} />
-      <meta property='og:description' content={description} />
-      <meta property='og:url' content={url} />
+      {description && <meta name='description' content={description} />}
+      {url && <link rel='canonical' href={url} />}
+      {/* Open Graph/Facebook */}
+      {title && <meta property='og:title' content={title} />}
+      {description && <meta property='og:description' content={description} />}
+      {imgUrl && <meta property='og:image' content={imgUrl} />}
+      {url && <meta property='og:url' content={url} />}
+      <meta property='og:type' content={ogType} />
       {/* Twitter */}
-      <meta name='twitter:title' content={pageTitle} />
-      <meta name='twitter:description' content={description} />
-      <meta name='twitter:image' content={imgUrl} />
-      <meta name='twitter:card' content={summary} />
+      {title && <meta name='twitter:title' content={title} />}
+      {description && <meta name='twitter:description' content={description} />}
+      {imgUrl && <meta name='twitter:image' content={imgUrl} />}
+      <meta name='twitter:card' content={twitterCard} />
     </Head>
   )
 }
 
 Metadata.propTypes = {
-  url: PropTypes.string,
-  pageTitle: PropTypes.string,
+  title: PropTypes.string,
   description: PropTypes.string,
+  url: PropTypes.string,
   imgUrl: PropTypes.string,
-  summary: PropTypes.string,
+  ogType: PropTypes.string,
+  twitterCard: PropTypes.string,
 }
+
+Metadata.defaultProps = {
+  title: '',
+  description: '',
+  url: '',
+  imgUrl: '',
+  ogType: 'website',
+  twitterCard: 'summary',
+}
+
+export default Metadata

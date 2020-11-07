@@ -8,23 +8,15 @@ const GeboGame = ({ audio = {}, frame = {}, content = {}, caption }) => {
   const audioRef = useRef(null)
   const buttonRef = useRef(null)
 
-  // useEffect(() => {
-  //   if (on) {
-  //     audioRef.current.play()
-  //   } else {
-  //     audioRef.current.pause()
-  //   }
-  // }, [on])
-
   const buttonClickHandler = useCallback(() => {
-    if (on) {
-      // initially on
-      audioRef.current.pause()
+    const aRC = audioRef.current
+    const newState = !on
+    setOn(newState)
+    if (newState) {
+      aRC.play()
     } else {
-      // initially off
-      audioRef.current.play()
+      aRC.pause()
     }
-    setOn(!on)
   }, [on])
 
   useEffect(() => {
@@ -37,12 +29,7 @@ const GeboGame = ({ audio = {}, frame = {}, content = {}, caption }) => {
 
   return (
     <div className={styles.geboGame}>
-      <button
-        ref={buttonRef}
-        type='button'
-        className={styles.buttonWrap}
-        // onClick={() => setOn(!on)}
-      >
+      <button ref={buttonRef} type='button' className={styles.buttonWrap}>
         <figure className={styles.container}>
           <img className={styles.frame} src={frame.url} alt={frame.alt} />
           <div className={styles.contentWrap}>
