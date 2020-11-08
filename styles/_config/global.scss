@@ -1,3 +1,10 @@
+:root {
+  --primary: #ffffff;
+  --background: #000000;
+  --sans-serif: 'Lato', Helvetica Neue, Arial, sans-serif;
+  --serif: 'Noto Serif', Times New Roman, serif;
+}
+
 html,
 body {
   padding: 0;
@@ -7,11 +14,6 @@ body {
   background: var(--background);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 *,
 *::before,
 *::after {
@@ -19,13 +21,6 @@ a {
 }
 
 /* Reset CSS */
-input,
-select,
-textarea,
-button {
-  font-family: var(--serif);
-}
-
 button {
   border: none;
   background: none;

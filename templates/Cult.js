@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import clsx from 'clsx'
 import { RichText } from '../components/Prismic'
 import Banner from '../components/Cult/Banner'
 import Logo from '../components/Cult/Logo'
@@ -22,11 +23,13 @@ const Cult = ({ data }) => {
     >
       <div className='container'>
         {/* <Banner text={banner} /> */}
-        <div className={styles.headings}>
+        <div className={clsx('rte', styles.headings)}>
           <RichText content={heading} />
         </div>
         <Logo logo={logo} video={video} />
-        <RichText content={body} />
+        <div className='rte'>
+          <RichText content={body} />
+        </div>
       </div>
     </div>
   )

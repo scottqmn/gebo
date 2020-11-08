@@ -1,0 +1,43 @@
+$breakpoints-min: (
+  'sm': 375px,
+  'md': 768px,
+  'lg': 900px,
+) !default;
+
+@mixin min-width($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints-min, $breakpoint) {
+    // Prints a media query based on the value
+    @media (min-width: map-get($breakpoints-min, $breakpoint)) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints-min are: #{map-keys($breakpoints-min)}.";
+  }
+}
+
+$breakpoints-max: (
+  'sm': 374px,
+  'md': 767px,
+  'lg': 899px,
+) !default;
+
+@mixin max-width($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints-max, $breakpoint) {
+    // Prints a media query based on the value
+    @media (max-width: map-get($breakpoints-max, $breakpoint)) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints-max are: #{map-keys($breakpoints-max)}.";
+  }
+}
