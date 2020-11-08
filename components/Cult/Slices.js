@@ -20,11 +20,11 @@ const Slices = ({ slices }) =>
       default:
     }
 
-    return (
+    return Component ? (
       <div key={`cult-slice-${index}`}>
         <Component />
       </div>
-    )
+    ) : null
   })
 
 Slices.propTypes = {
