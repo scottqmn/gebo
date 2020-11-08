@@ -2,9 +2,9 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background: beige;
+  font-family: var(--sans-serif);
+  color: var(--primary);
+  background: var(--background);
 }
 
 a {
@@ -19,6 +19,13 @@ a {
 }
 
 /* Reset CSS */
+input,
+select,
+textarea,
+button {
+  font-family: var(--serif);
+}
+
 button {
   border: none;
   background: none;
