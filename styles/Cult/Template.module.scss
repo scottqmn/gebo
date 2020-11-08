@@ -4,12 +4,9 @@
   min-height: 100vh;
   min-width: 100vw;
   background-repeat: repeat;
+  background-size: 666px;
 }
 
 .headings {
   text-align: center;
-
-  @include min-width('lg') {
-    text-align: right;
-  }
 }
