@@ -1,6 +1,8 @@
 :root {
   --primary: #ffffff;
-  --background: #000000;
+  --background1: rgb(65, 27, 142);
+  --background2: rgb(154, 226, 240);
+
   --sans-serif: 'Lato', Helvetica Neue, Arial, sans-serif;
   --serif: 'Noto Serif', Times New Roman, serif;
 }
@@ -11,7 +13,13 @@ body {
   margin: 0;
   font-family: var(--sans-serif);
   color: var(--primary);
-  background: var(--background);
+
+  //   background: var(--background1);
+  //   background-image: linear-gradient(var(--background1), var(--background2));
+  //   background-size: cover;
+  //   min-height: 100vh;
+
+  //   animation: bg 5s ease infinite;
 }
 
 *,

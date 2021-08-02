@@ -1,11 +1,47 @@
-.geboGame {
+@keyframes bg-rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.outer {
+  background-color: #1c1c1c;
+  min-height: 100vh;
+  position: relative;
   width: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+.bg {
+  background-image: linear-gradient(var(--background1), var(--background2));
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  animation: bg-rotate 8s linear infinite;
+  transition: all 0.2s ease;
+  height: 200vmax;
+  width: 200vmax;
+}
+
+.isOn {
+  opacity: 1;
+}
+
+.inner {
+  margin: 0 auto;
   max-width: 420px;
-  margin: 10vmin auto 0;
+  padding: 10vmin 20px 0 20px;
+  width: 100%;
 }
 
 .buttonWrap {
   display: block;
+  cursor: pointer;
   width: 100%;
 }
 
@@ -41,4 +77,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.indicator {
+  height: 20px;
+  position: absolute;
+  right: 65px;
+  top: 35px;
+  width: 20px;
 }
