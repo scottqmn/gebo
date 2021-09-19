@@ -9,6 +9,9 @@
 
 .outer {
   background-color: #1c1c1c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
   overflow: hidden;
   position: relative;
@@ -23,10 +26,10 @@
   left: 50%;
   opacity: 0;
   transform: translate(-50%, -50%);
-  animation: bg-rotate 8s linear infinite;
-  transition: all 0.2s ease;
-  height: 200vmax;
-  width: 200vmax;
+  animation: bg-rotate 6s linear infinite;
+  transition: all 0.2s ease-in-out;
+  height: 150vmax;
+  width: 150vmax;
 }
 
 .isOn {
@@ -36,7 +39,7 @@
 .inner {
   margin: 0 auto;
   max-width: 420px;
-  padding: 10vmin 20px 0 20px;
+  padding: 0 20px 10vmin;
   width: 100%;
 }
 
@@ -83,7 +86,7 @@
 .indicator {
   height: 20px;
   position: absolute;
-  right: 65px;
-  top: 35px;
+  right: 15%;
+  top: 12.5%;
   width: 20px;
 }

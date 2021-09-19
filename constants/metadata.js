@@ -1,8 +1,8 @@
 export default {
-  title: 'Gebo Life: Thought Collective',
+  title: 'Gebo Zone: Thought Collective',
   description:
-    'Learn about Gebo Life, a lifestyle reform thought collective. It was founded in 2020 by a shelter dog and associates.',
+    'WANTED: Companion to go to the Gebo Zone. This is not a joke. You’ll get paid after we get back. Safety not guaranteed.',
   image: '/meta_image.jpg',
   favicon: '/favicon.ico',
-  url: 'https://gebo.life',
+  url: 'https://geboz.one',
 }
